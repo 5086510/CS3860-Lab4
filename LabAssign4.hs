@@ -31,12 +31,12 @@ shiftChar :: Char -> Int -> Char
 shiftChar c n
   | isUpper c = chr (((ord c - ord 'A' + n) `mod` 26) + ord 'A')
   | isLower c = chr (((ord c - ord 'a' + n) `mod` 26) + ord 'a')
-  | c == ' '  = 'c'  -- Change spaces to 'z'
+  | c == ' '  = 'c'  -- Change spaces to 'c'
   | otherwise = c
 
 shiftCharBack :: Char -> Int -> Char
 shiftCharBack c n
-  | c == 'c'  = ' '  -- Decrypt 'z' back to space
+  | c == 'c'  = ' '  -- Decrypt 'c' back to space
   | isUpper c = chr (((ord c - ord 'A' - n) `mod` 26) + ord 'A')
   | isLower c = chr (((ord c - ord 'a' - n) `mod` 26) + ord 'a')
   | otherwise = c
